@@ -1,12 +1,14 @@
+// updated: openai whisper api
 import { randomUUID } from "crypto";
-import { unlink, writeFile } from "fs/promises";
 import { NextResponse } from "next/server";
-import { tmpdir } from "os";
-import { join } from "path";
+import OpenAI from "openai";
 import { buildWhisperMedicalContext } from "@/lib/medical-vocabulary";
-import { runWhisperTranscription } from "@/lib/whisper-runner";
 
 const MAX_AUDIO_BYTES = 25 * 1024 * 1024;
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 function extensionForMime(mime: string): string {
   if (mime.includes("wav")) return "wav";
@@ -35,41 +37,27 @@ export async function POST(request: Request) {
   const patientField = formData.get("patientData");
   const patientData = typeof patientField === "string" ? patientField : "";
 
-  const buffer = Buffer.from(await audio.arrayBuffer());
   const ext = extensionForMime(audio.type);
-  const tempPath = join(tmpdir(), `dictation-${randomUUID()}.${ext}`);
+  const filename = "dictation-${randomUUID()}.${ext}";
 
   try {
-    await writeFile(tempPath, buffer);
-
     const medicalContext = buildWhisperMedicalContext(patientData);
-    const parsed = await runWhisperTranscription(tempPath, medicalContext);
+    const file = new File([audio], filename, { type: audio.type });
+    const response = await openai.audio.transcriptions.create({
+      file,
+      model: "whisper-1",
+      prompt: medicalContext,
+      response_format: "text",
+    });
 
-    if (parsed.error) {
-      return NextResponse.json({ error: parsed.error }, { status: 502 });
-    }
-
-    const transcription = parsed.text?.trim() ?? "";
+    const transcription = response.trim();
     if (!transcription) {
-      return NextResponse.json(
-        { error: "No speech detected. Try recording again." },
-        { status: 422 },
-      );
+      return NextResponse.json({ error: "No speech detected. Try recording again." }, { status: 422 });
     }
-
     return NextResponse.json({ transcription });
   } catch (error) {
     console.error("Whisper transcription error:", error);
-
-    const message =
-      error instanceof Error
-        ? error.message.includes("ENOENT")
-          ? "Python is not available. Install Python and run: pip install openai-whisper"
-          : error.message
-        : "Transcription failed. Please try again.";
-
+    const message = error instanceof Error ? error.message : "Transcription failed. Please try again.";
     return NextResponse.json({ error: message }, { status: 502 });
-  } finally {
-    await unlink(tempPath).catch(() => {});
   }
 }
