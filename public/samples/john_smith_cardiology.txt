@@ -1,0 +1,10 @@
+Patient Name: John Smith
+Date of Birth: 1958-03-14
+Chief Complaint: Chest tightness and shortness of breath on exertion
+Medical History: Hypertension, Type 2 Diabetes, Hyperlipidemia
+Current Medications: Metformin 500mg, Lisinopril 10mg, Atorvastatin 20mg
+Allergies: Penicillin
+Last Visit: 2026-03-10
+Vitals: BP 138/88, HR 72, Weight 91kg
+Recent Labs: HbA1c 7.4%, LDL 2.8 mmol/L
+Physician Notes: Patient reports increasing frequency of angina episodes over past 3 weeks

@@ -1,0 +1,10 @@
+Patient Name: Eleanor Nguyen
+Date of Birth: 1938-12-01
+Chief Complaint: Dizziness and one near-fall at home
+Medical History: Osteoporosis, Hypothyroidism, GERD, Mild cognitive impairment
+Current Medications: Levothyroxine 75mcg, Omeprazole 20mg, Alendronate weekly, Acetaminophen PRN, Amlodipine 2.5mg
+Allergies: Latex
+Last Visit: 2026-01-20
+Vitals: BP 118/62 (orthostatic drop to 98/58 standing), HR 58, Weight 54kg
+Recent Labs: TSH 4.8 mIU/L (slightly elevated), Vitamin B12 borderline low, BMP normal
+Physician Notes: Daughter present; concerned about balance; lives alone with weekly home care

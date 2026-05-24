@@ -1,0 +1,4 @@
+anthropic
+openai-whisper
+python-dotenv
+audio-recorder-streamlit

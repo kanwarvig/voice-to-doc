@@ -1,0 +1,10 @@
+Patient Name: James Wilson
+Date of Birth: 1945-06-30
+Chief Complaint: Palpitations and routine anticoagulation follow-up
+Medical History: Atrial fibrillation (persistent), Hypertension, CKD stage 3, Prior TIA (2019)
+Current Medications: Apixaban 5mg BID, Metoprolol 50mg, Furosemide 20mg, Rosuvastatin 10mg
+Allergies: Aspirin (GI bleed 2020)
+Last Visit: 2026-04-15
+Vitals: BP 132/80, HR 82 irregular, Weight 78kg
+Recent Labs: INR N/A (on apixaban), Creatinine 1.4 mg/dL, eGFR 52, BNP 210 pg/mL
+Physician Notes: Holter showed intermittent AF; patient compliant with apixaban; mild ankle edema

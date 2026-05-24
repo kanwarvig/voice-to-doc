@@ -1,0 +1,10 @@
+Patient Name: Maria Lopez
+Date of Birth: 1967-08-22
+Chief Complaint: Follow-up for poorly controlled diabetes and fatigue
+Medical History: Type 2 Diabetes, Obesity, Fatty liver disease, Osteoarthritis
+Current Medications: Metformin 1000mg BID, Semaglutide 0.5mg weekly, Atorvastatin 10mg, Vitamin D
+Allergies: Sulfa drugs
+Last Visit: 2026-04-02
+Vitals: BP 142/86, HR 78, Weight 104kg, BMI 34.2
+Recent Labs: HbA1c 8.9%, Fasting glucose 11.2 mmol/L, ALT 48 U/L, eGFR 78
+Physician Notes: Patient admits inconsistent diet over holidays; interested in increasing semaglutide dose

@@ -1,0 +1,10 @@
+Patient Name: Robert Chen
+Date of Birth: 1952-11-05
+Chief Complaint: Worsening cough and wheezing for 5 days
+Medical History: COPD (GOLD stage II), Hypertension, Former smoker (40 pack-years, quit 2018)
+Current Medications: Fluticasone/Salmeterol inhaler, Albuterol PRN, Tiotropium, Amlodipine 5mg
+Allergies: NKDA
+Last Visit: 2026-02-18
+Vitals: BP 128/76, HR 88, RR 22, SpO2 91% on room air, Temp 37.1C
+Recent Labs: WBC 11.2, CRP 18 mg/L
+Physician Notes: Increased rescue inhaler use; no hemoptysis; denies fever until yesterday

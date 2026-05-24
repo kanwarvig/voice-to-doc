@@ -1,0 +1,10 @@
+Patient Name: Sarah Patel
+Date of Birth: 1990-04-17
+Chief Complaint: Anxiety and low mood, medication review
+Medical History: Generalized anxiety disorder, Major depressive disorder (moderate), Insomnia
+Current Medications: Sertraline 100mg daily, Quetiapine 25mg at bedtime PRN, Melatonin 3mg
+Allergies: Codeine (nausea)
+Last Visit: 2026-03-28
+Vitals: BP 118/74, HR 64, Weight 62kg
+Recent Labs: TSH 2.1 mIU/L (normal)
+Physician Notes: Reports improved sleep but ongoing work stress; denies suicidal ideation; no manic symptoms
