@@ -46,7 +46,7 @@ export function DictationRecorder({
     onError(null);
 
     const formData = new FormData();
-    formData.append("audio", blob, `dictation.${blob.type.includes("webm") ? "webm" : "wav"}`);
+    formData.append("audio", blob, "dictation.mp3");
     if (patientData.trim()) {
       formData.append("patientData", patientData);
     }
@@ -191,3 +191,4 @@ export function DictationRecorder({
     </div>
   );
 }
+
