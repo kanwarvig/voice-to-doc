@@ -1,5 +1,4 @@
-// updated: openai whisper api v2
-import { randomUUID } from "crypto";
+﻿// updated: openai whisper api v3
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
@@ -8,13 +7,6 @@ const MAX_AUDIO_BYTES = 25 * 1024 * 1024;
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-function extensionForMime(mime: string): string {
-  if (mime.includes("wav")) return "wav";
-  if (mime.includes("mpeg") || mime.includes("mp3")) return "mp3";
-  if (mime.includes("ogg")) return "ogg";
-  return "webm";
-}
 
 export async function POST(request: Request) {
   let formData: FormData;
@@ -33,11 +25,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Recording is too large (max 25 MB)" }, { status: 413 });
   }
 
-  const ext = extensionForMime(audio.type);
-  const filename = "dictation-${randomUUID()}.${ext}";
-
   try {
-    const file = new File([audio], filename, { type: audio.type });
+    const file = new File([audio], "dictation.webm", { type: "audio/webm" });
 
     const response = await openai.audio.transcriptions.create({
       file,
@@ -61,4 +50,3 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: message }, { status: 502 });
   }
 }
-
