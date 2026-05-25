@@ -1,8 +1,7 @@
-// updated: openai whisper api
+// updated: openai whisper api v2
 import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
-import { buildWhisperMedicalContext } from "@/lib/medical-vocabulary";
 
 const MAX_AUDIO_BYTES = 25 * 1024 * 1024;
 
@@ -34,26 +33,27 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Recording is too large (max 25 MB)" }, { status: 413 });
   }
 
-  const patientField = formData.get("patientData");
-  const patientData = typeof patientField === "string" ? patientField : "";
-
   const ext = extensionForMime(audio.type);
   const filename = "dictation-${randomUUID()}.${ext}";
 
   try {
-    const medicalContext = buildWhisperMedicalContext(patientData);
     const file = new File([audio], filename, { type: audio.type });
+
     const response = await openai.audio.transcriptions.create({
       file,
       model: "whisper-1",
-      prompt: medicalContext,
       response_format: "text",
     });
 
     const transcription = response.trim();
+
     if (!transcription) {
-      return NextResponse.json({ error: "No speech detected. Try recording again." }, { status: 422 });
+      return NextResponse.json(
+        { error: "No speech detected. Try recording again." },
+        { status: 422 },
+      );
     }
+
     return NextResponse.json({ transcription });
   } catch (error) {
     console.error("Whisper transcription error:", error);
